@@ -1,11 +1,11 @@
 import { IArticles } from '../../types/articles.interface';
 import { INewsAPI } from '../../types/newsSorses.interface';
 import { IProduct, IProducts } from '../../types/product.interface';
-import AppLoader from './appLoader';
+import Loader from './loader';
 
 type NewType = (data: IProducts) => void;
 
-class AppController extends AppLoader {
+class AppController extends Loader {
     getSources(callback: NewType) {
         super.getResp(
             {

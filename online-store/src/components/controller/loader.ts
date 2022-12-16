@@ -3,12 +3,7 @@ import { IGetRespParam, Options } from '../../types/getrespparms.interface';
 import { IProduct, IProducts } from '../../types/product.interface';
 
 class Loader {
-    baseLink: string;
-    options: IApiKey;
-    constructor(baseLink: string, options: IApiKey) {
-        this.baseLink = baseLink;
-        this.options = options;
-    }
+   
 
     getResp(
         { options = {} }: IGetRespParam,
@@ -36,8 +31,9 @@ class Loader {
         fetch('https://dummyjson.com/products', { method })
             .then(this.errorHandler)
             .then((res2) => res2.json())
-            .then((data) => callback(data))
+            .then((data:IProducts) => callback(data))  
             .catch((err) => console.error(err))
+          
     }
 }
 

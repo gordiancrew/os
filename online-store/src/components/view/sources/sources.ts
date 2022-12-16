@@ -4,6 +4,9 @@ import './sources.css';
 
 class Sources {
     draw(data: IProduct[]): void {
+
+JSON.parse(localStorage.val).forEach((x:IProduct)=> console.log('!!!!!!!!!!!!!!!!!!!!!'+x.id))
+       
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
         console.log("data on source is :" + data);
