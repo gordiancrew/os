@@ -1,19 +1,9 @@
-
 import { IProduct, IProducts } from '../../types/product.interface';
 type NewType = (data: IProducts) => void;
 class Loader {
-
-  
-
-    
-        getSources(callback: NewType) {
-            this.getResp( 
-                callback
-            );
-        }
-    
-    
-
+    getSources(callback: NewType) {
+        this.getResp(callback);
+    }
 
     getResp(
         callback = (data: IProducts) => {
@@ -29,7 +19,6 @@ class Loader {
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
             throw Error(res.statusText);
         }
-
         return res;
     }
 

@@ -1,4 +1,4 @@
-import AppController from '../controller/controller';
+
 import Loader from '../controller/loader';
 import { AppView } from '../view/appView';
 

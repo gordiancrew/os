@@ -1,11 +1,9 @@
-import { IProduct, IProducts } from '../../types/product.interface';
-import { IArticle, IArticles, IArticleSource, INewsAPI, INewsSorse } from './../../types/index';
+import { IProducts } from '../../types/product.interface';
 
 import Sources from './sources/sources';
 
 export class AppView {
-    sources= new Sources();
-
+    sources = new Sources();
 
     drawProducts(data: IProducts) {
         const values = data?.products ? data.products : [];
