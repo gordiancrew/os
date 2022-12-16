@@ -1,17 +1,26 @@
-import { IApiKey } from '../../types/apikey.interface';
-import { IGetRespParam, Options } from '../../types/getrespparms.interface';
-import { IProduct, IProducts } from '../../types/product.interface';
 
+import { IProduct, IProducts } from '../../types/product.interface';
+type NewType = (data: IProducts) => void;
 class Loader {
-   
+
+  
+
+    
+        getSources(callback: NewType) {
+            this.getResp( 
+                callback
+            );
+        }
+    
+    
+
 
     getResp(
-        { options = {} }: IGetRespParam,
         callback = (data: IProducts) => {
             console.error('No callback for GET response');
         }
     ) {
-        this.load('GET',  callback, options);
+        this.load('GET', callback);
     }
 
     errorHandler(res: Response): Response {
@@ -24,16 +33,12 @@ class Loader {
         return res;
     }
 
-
-    load(method: string,  callback: (data: IProducts) => void, options = {}): void {
-
-
+    load(method: string, callback: (data: IProducts) => void): void {
         fetch('https://dummyjson.com/products', { method })
             .then(this.errorHandler)
             .then((res2) => res2.json())
-            .then((data:IProducts) => callback(data))  
-            .catch((err) => console.error(err))
-          
+            .then((data: IProducts) => callback(data))
+            .catch((err) => console.error(err));
     }
 }
 

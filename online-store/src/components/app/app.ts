@@ -1,17 +1,13 @@
 import AppController from '../controller/controller';
+import Loader from '../controller/loader';
 import { AppView } from '../view/appView';
 
 class App {
-    controller: AppController;
-    view: AppView;
-    constructor() {
-        this.controller = new AppController();
-        this.view = new AppView();
-    }
+    loader: Loader = new Loader();
+    view: AppView = new AppView();
 
     start() {
-      
-        this.controller.getSources((data) => this.view.drawProducts(data));
+        this.loader.getSources((data) => this.view.drawProducts(data));
     }
 }
 

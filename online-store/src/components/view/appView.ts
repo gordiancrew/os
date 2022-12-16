@@ -4,11 +4,8 @@ import { IArticle, IArticles, IArticleSource, INewsAPI, INewsSorse } from './../
 import Sources from './sources/sources';
 
 export class AppView {
-    sources: Sources;
+    sources= new Sources();
 
-    constructor() {
-        this.sources = new Sources();
-    }
 
     drawProducts(data: IProducts) {
         const values = data?.products ? data.products : [];
