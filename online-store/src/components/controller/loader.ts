@@ -1,6 +1,4 @@
 import { IApiKey } from '../../types/apikey.interface';
-import { IArticles } from '../../types/articles.interface';
-import { INewsAPI } from '../../types/newsSorses.interface';
 import { IGetRespParam, Options } from '../../types/getrespparms.interface';
 import { IProduct, IProducts } from '../../types/product.interface';
 
@@ -13,12 +11,12 @@ class Loader {
     }
 
     getResp(
-        { endpoint, options = {} }: IGetRespParam,
-        callback = (data: INewsAPI & IArticles&IProducts) => {
+        { options = {} }: IGetRespParam,
+        callback = (data: IProducts) => {
             console.error('No callback for GET response');
         }
     ) {
-        this.load('GET', endpoint, callback, options);
+        this.load('GET',  callback, options);
     }
 
     errorHandler(res: Response): Response {
@@ -31,23 +29,9 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: Options, endpoint: string): string {
-        const urlOptions: { [key: string]: string } = { ...this.options, ...options };
-        let url = `${this.baseLink}${endpoint}?`;
 
-        Object.keys(urlOptions).forEach((key) => {
-            url += `${key}=${urlOptions[key]}&`;
-        });
+    load(method: string,  callback: (data: IProducts) => void, options = {}): void {
 
-        return url.slice(0, -1);
-    }
-
-    load(method: string, endpoint: string, callback: (data: INewsAPI & IArticles & IProducts) => void, options = {}): void {
-        // fetch(this.makeUrl(options, endpoint), { method })
-        //     .then(this.errorHandler)
-        //     .then((res) => res.json())
-        //     .then((data) => callback(data))
-        //     .catch((err) => console.error(err));
 
         fetch('https://dummyjson.com/products', { method })
             .then(this.errorHandler)
