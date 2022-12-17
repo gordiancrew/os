@@ -1,18 +1,6 @@
 import { IProduct, IProducts } from '../../types/product.interface';
 type NewType = (data: IProducts) => void;
 class Loader {
-    getSources(callback: NewType) {
-        this.getResp(callback);
-    }
-
-    getResp(
-        callback = (data: IProducts) => {
-            console.error('No callback for GET response');
-        }
-    ) {
-        this.load('GET', callback);
-    }
-
     errorHandler(res: Response): Response {
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)

@@ -2,12 +2,13 @@ body {
     color: rgb(52, 206, 233);
     background: #17181c;
     font-family: sans-serif;
- 
- 
+
+
 }
 
 header {
     padding: 10px 30px;
+    display: flex;
 }
 
 header h1 {
@@ -21,10 +22,12 @@ footer {
     align-items: center;
     justify-content: space-around;
 }
-.footer_logo{
+
+.footer_logo {
     background-color: rgb(175, 148, 148);
 }
-.footer_logo img{
+
+.footer_logo img {
     height: 40px;
     cursor: pointer;
 }
@@ -46,9 +49,25 @@ footer .copyright a:hover {
 footer .copyright:before {
     content: '©';
 }
+
 main {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.btn {
+    height: 20px;
+    width: 150px;
+    background-color: rgb(220, 236, 220);
+    margin: 0 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn:hover{
+    background-color: rgb(157, 255, 0);
 }
